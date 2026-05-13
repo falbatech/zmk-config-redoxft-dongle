@@ -6,6 +6,41 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
+/ {
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Redox FT Dongle";
+        transform = <&default_transform>;
+        keys
+            = <&key_physical_attrs 0 0 100 100 0 0>
+            ;
+    };
+
+    chosen {
+        zmk,physical-layout = &physical_layout0;
+    };
+
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <1>;
+        rows = <1>;
+        map = <
+            RC(0,0)
+        >;
+    };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-mock";
+        columns = <1>;
+        rows = <1>;
+        events = <0>;
+    };
+
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &default_transform;
+    };
+};
 
 / {
     chosen {

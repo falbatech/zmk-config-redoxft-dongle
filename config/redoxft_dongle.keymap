@@ -26,9 +26,7 @@
 #define EXTRA 4
 
 /* Override chain-length: shield Redox ma domyślnie 10, my mamy 35 per strona */
-&led_strip {
-    chain-length = <35>;
-};
+
 
 / {
     behaviors {

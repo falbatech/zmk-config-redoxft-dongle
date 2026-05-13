@@ -27,7 +27,19 @@
 
 /* Override chain-length: shield Redox ma domyślnie 10, my mamy 35 per strona */
 
+#include <dt-bindings/zmk/keys.h>
 
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                &none
+            >;
+        };
+    };
+};
 / {
     behaviors {
         hm: homerow_mods {

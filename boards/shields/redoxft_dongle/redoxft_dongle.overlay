@@ -1,68 +1,23 @@
 /*
  * Redox FT dongle shield
- * nice!nano v2 used as USB/BLE central, with no physical keys.
- * The two Redox FT halves connect to this dongle as BLE peripherals.
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <physical_layouts.dtsi>
-/ {
-    physical_layout0: physical_layout_0 {
-        compatible = "zmk,physical-layout";
-        display-name = "Redox FT Dongle";
-        transform = <&default_transform>;
-        keys
-            = <&key_physical_attrs 0 0 100 100 0 0>
-            ;
-    };
-
-    chosen {
-        zmk,physical-layout = &physical_layout0;
-    };
-
-    default_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <1>;
-        rows = <1>;
-        map = <
-            RC(0,0)
-        >;
-    };
-
-    kscan0: kscan_0 {
-        compatible = "zmk,kscan-mock";
-        columns = <1>;
-        rows = <1>;
-        events = <0>;
-    };
-
-    chosen {
-        zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
-    };
-};
 
 / {
     chosen {
         zmk,kscan = &mock_kscan;
-        zmk,matrix_transform = &default_transform;
+        zmk,matrix-transform = &default_transform;
         zmk,physical-layout = &redoxft_physical_layout;
     };
 
-    /*
-     * Mock scanner: the dongle has no physical keys of its own.
-     */
     mock_kscan: mock_kscan_0 {
         compatible = "zmk,kscan-mock";
-        columns = <0>;
-        rows = <0>;
+        columns = <14>;
+        rows = <5>;
         events = <0>;
     };
 
-    /*
-     * Official Redox 70-key transform copied for the dongle central.
-     * This lets the central map incoming positions from both halves.
-     */
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <14>;
@@ -76,14 +31,12 @@
         >;
     };
 
-    /*
-     * Bare physical layout for ZMK Studio. It uses the same transform.
-     * This is enough for building and Studio connection. If you want the
-     * exact visual key positions later, copy the full upstream redox layout.
-     */
     redoxft_physical_layout: redoxft_physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "Redox FT";
         transform = <&default_transform>;
+        keys = <
+            0 0 100 100 0 0
+        >;
     };
 };

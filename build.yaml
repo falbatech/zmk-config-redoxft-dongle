@@ -1,0 +1,23 @@
+---
+include:
+  # Redox FT halves as peripherals for dongle mode
+  - board: nice_nano//zmk
+    shield: redox_left nice_view_adapter nice_view
+    artifact-name: redox_left_peripheral
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  - board: nice_nano//zmk
+    shield: redox_right nice_view_adapter nice_view
+    artifact-name: redox_right_peripheral
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  # USB/BLE dongle as central
+  - board: nice_nano//zmk
+    shield: redoxft_dongle
+    artifact-name: redoxft_dongle
+    snippet: studio-rpc-usb-uart
+
+  # Reset firmware for all 3 devices before first pairing
+  - board: nice_nano//zmk
+    shield: settings_reset
+    artifact-name: settings_reset

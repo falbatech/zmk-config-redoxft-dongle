@@ -1,0 +1,28 @@
+if SHIELD_REDOXFT_DONGLE
+
+config ZMK_KEYBOARD_NAME
+    default "Redox FT"
+
+# Dongle is the central device.
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+# Redox FT has two wireless halves connected to the dongle.
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
+# 5 host BT profiles + 2 peripheral halves = 7 connections/pairings.
+config BT_MAX_CONN
+    default 7
+
+config BT_MAX_PAIRED
+    default 7
+
+# Optional but useful: the dongle can report battery levels from both halves.
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default y
+
+endif

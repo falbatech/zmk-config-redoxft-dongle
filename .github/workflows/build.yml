@@ -1,6 +1,12 @@
-name: Build ZMK firmware
-on: [push, pull_request, workflow_dispatch]
+include:
+  - board: nice_nano
+    shield: redox_left
+    artifact-name: redoxft_left
 
-jobs:
-  build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+  - board: nice_nano
+    shield: redox_right
+    artifact-name: redoxft_right
+
+  - board: nice_nano
+    shield: redoxft_dongle
+    artifact-name: redoxft_dongle

@@ -9,3 +9,6 @@ include:
 
   - board: nice_nano/nrf52840/zmk
     shield: redoxft_dongle
+    artifact-name: redoxft_dongle
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y

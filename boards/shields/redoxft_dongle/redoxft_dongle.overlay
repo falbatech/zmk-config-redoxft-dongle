@@ -33,11 +33,13 @@
     };
 
     redoxft_physical_layout: redoxft_physical_layout {
-        compatible = "zmk,physical-layout";
-        display-name = "Redox FT";
-        transform = <&default_transform>;
-        keys = <
-            0 0 100 100 0 0
+    compatible = "zmk,physical-layout";
+    display-name = "Redox FT";
+    transform = <&default_transform>;
+
+    keys = <
+        &key_physical_attrs 100 100 0 0 0 0 0
+    >;
         >;
     };
 };

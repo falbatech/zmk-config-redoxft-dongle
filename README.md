@@ -1,64 +1,119 @@
-:::writing{variant=“standard” id=“58142”}
+:::writing{variant=“standard” id=“73418”}
 
-Redox FT Dongle Edition (ZMK)
+<div align="center">
 
-This repository contains ZMK firmware for the FalbaTech Redox FT with USB dongle support.
 
-Configuration
-	•	Left half: BLE Peripheral
-	•	Right half: BLE Peripheral
-	•	Dongle: BLE Central + USB HID
+Redox FT Dongle Edition
 
-The dongle connects to both keyboard halves over Bluetooth and sends key events to the computer through USB.
+Wireless ergonomic split keyboard with dedicated USB dongle support powered by ZMK.
+
+<img src="https://raw.githubusercontent.com/zmkfirmware/zmk/main/docs/static/img/zmk-logo.png" width="140">
+
+
+</div>
+
+
+
+⸻
+
+Overview
+
+This repository contains firmware for the FalbaTech Redox FT Dongle Edition.
+
+Configuration:
+	•	Left half → BLE Peripheral
+	•	Right half → BLE Peripheral
+	•	Dongle → BLE Central + USB HID
+
+The dongle connects to both keyboard halves over Bluetooth and sends all key events to the computer through USB.
+
+⸻
+
+Features
+	•	ZMK Firmware
+	•	Wireless split keyboard
+	•	USB dongle support
+	•	ZMK Studio compatible
+	•	nice!nano v2 compatible
+	•	BLE profile support
+	•	RGB support
+	•	OLED / nice!view support
+	•	USB HID through dongle
+
+⸻
 
 Hardware
 
 Keyboard halves
 	•	nice!nano v2 compatible controllers
-	•	ZMK firmware
 	•	Bluetooth split communication
+	•	Rechargeable battery powered
 
 Dongle
 	•	nice!nano v2
-	•	USB connection to computer
-	•	Acts as BLE central device
+	•	USB connected to computer
+	•	BLE central device
+
+⸻
 
 First Flashing
 
-IMPORTANT:
+⚠ IMPORTANT ⚠
 
 Before flashing firmware for the first time:
 	1.	Flash settings_reset.uf2
 	2.	Flash final firmware
-	3.	Repeat for:
+
+Repeat this for:
 	•	left half
 	•	right half
 	•	dongle
 
-This avoids old BLE pairing issues.
+This prevents old BLE pairing problems.
 
-Build Targets
+⸻
 
-This repository builds:
-	•	Redox FT Left
-	•	Redox FT Right
-	•	Redox FT Dongle
+Build Outputs
+
+GitHub Actions generates firmware for:
+
+Device	Type
+Redox FT Left	BLE Peripheral
+Redox FT Right	BLE Peripheral
+Redox FT Dongle	BLE Central + USB
+
+
+⸻
 
 Pairing
-
-After flashing:
-	1.	Turn on both halves
+	1.	Turn on both keyboard halves
 	2.	Connect dongle through USB
 	3.	Wait a few seconds
-	4.	The halves should automatically connect to the dongle
+	4.	Devices should pair automatically
 
-Notes
-	•	Dongle firmware does not contain a keyboard matrix
-	•	Dongle acts only as USB/BLE bridge
-	•	ZMK Studio support depends on current firmware configuration
+⸻
 
-Based on
+Repository Structure
+
+boards/
+config/
+.github/workflows/
+
+
+⸻
+
+Powered By
 	•	ZMK Firmware
 	•	nice!nano v2
 	•	FalbaTech Redox FT
+
+⸻
+
+
+<div align="center">
+
+
+Made in Poland by FalbaTech
+
+</div>
 :::

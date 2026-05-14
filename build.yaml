@@ -4,19 +4,19 @@ include:
     shield: redox_left
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: redoxft_left
- 
+
   # Prawa połówka - peripheral
   - board: nice_nano/nrf52840/zmk
     shield: redox_right
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: redoxft_right
- 
+
   # Dongle - central, USB, Studio
   - board: nice_nano/nrf52840/zmk
     shield: redoxft_dongle
     snippet: studio-rpc-usb-uart
     artifact-name: redoxft_dongle
- 
+
   # Reset firmware - awaryjny do czyszczenia bondings
   - board: nice_nano/nrf52840/zmk
     shield: settings_reset
